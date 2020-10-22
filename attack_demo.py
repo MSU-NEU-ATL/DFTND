@@ -12,7 +12,7 @@ import argparse
 
 # import cw
 import torchattacks
-
+import fgsm
 
 def image_folder_custom_label(root, transform, custom_label):
     # custom_label
@@ -128,6 +128,9 @@ for images, labels in normal_loader:
     elif args.attack_name == "CW":
         atk = torchattacks.CW(model, c=1, kappa=0.9, steps=100, lr=0.01)
         images = atk(images, labels)
+    elif arg.attack_name == "FGSM"
+        images = fgsm.FGSMAttack(model, images, labels, epsilon = 0.3)
+
 
 
     labels = labels.to(device)
