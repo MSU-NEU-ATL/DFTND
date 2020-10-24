@@ -15,19 +15,11 @@ from setup_cifar import CIFAR, CIFARModel
 from setup_mnist import MNIST, MNISTModel
 from setup_inception import ImageNet, InceptionModel
 
-from ifgm import IFGM
-from fgm import FGM
 
-from l2_attack import CarliniL2
-from l2_ADMM_attack_v5 import ADMML2
-from l2_ADMM_attack_v6 import ADMML2en
+from utils.l2_ADMM_attack_v5 import ADMML2
 
-from l2_LADMM_attack import LADMML2
+from utils.l2_LADMMST_attack_v3 import LADMMSTL2
 
-from l2_LADMMST_attack_v3 import LADMMSTL2
-#from l2_LADMMST_attack import LADMMSTL2
-from l1_attack import EADL1
-from en_attack import EADEN
 
 from PIL import Image
 
