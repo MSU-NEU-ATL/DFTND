@@ -6,6 +6,8 @@ def main():
     if '--attack_type' in sys.argv:
         a = sys.argv.index('--attack_type')
         attack_type = sys.argv[a+1]
+        if attack_type == 'PGD' or 'FGSM' or 'CW':
+            attack_type = 'PGD'
         sys.argv[0] = attack_type + '.py'
         del sys.argv[a]
         del sys.argv[a]
