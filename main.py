@@ -8,9 +8,10 @@ def main():
         attack_type = sys.argv[a+1]
         if attack_type == 'PGD' or 'FGSM' or 'CW':
             attack_type = 'PGD'
+        if attack_type == 'sturctured' or 'ADMM':
+            attack_type = 'sturctured'
         sys.argv[0] = attack_type + '.py'
-        del sys.argv[a]
-        del sys.argv[a]
+
         command = ' '.join(sys.argv[:])
         command = 'python ' + command
         print(command)
