@@ -2,6 +2,6 @@
 
 example usage
 
-'''bash
+```bash
 python main.py --attack_name PGD 
-'''
+```
