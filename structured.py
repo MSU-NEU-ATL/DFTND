@@ -11,9 +11,9 @@ import time
 import random
 import os
 
-from setup_cifar import CIFAR, CIFARModel
-from setup_mnist import MNIST, MNISTModel
-from setup_inception import ImageNet, InceptionModel
+from utils.setup_cifar import CIFAR, CIFARModel
+from utils.setup_mnist import MNIST, MNISTModel
+from utils.setup_inception import ImageNet, InceptionModel
 
 
 from utils.l2_ADMM_attack_v5 import ADMML2
