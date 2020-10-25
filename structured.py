@@ -387,55 +387,16 @@ def main(args):
                                         start=0, inception=inception, handpick=handpick, seed=args['seed'])
 
         #print(true_ids)
-        if args['attack'] == 'L2C':
-            attack = CarliniL2(sess, model, batch_size=args['batch_size'], max_iterations=args['maxiter'],
-                               confidence=args['conf'],
-                               binary_search_steps=args['binary_steps'],
-                               abort_early=args['abort_early'])
 
-        if args['attack'] == 'L2A':
+        if args['attack'] == 'ADMM':
             attack = ADMML2(sess, model, batch_size=args['batch_size'], max_iterations=args['maxiter'],
                             confidence=args['conf'], binary_search_steps=args['iteration_steps'], ro=args['ro'],
                             abort_early=args['abort_early'])
 
-        if args['attack'] == 'L2AE':
-            attack = ADMML2en(sess, model, batch_size=args['batch_size'], max_iterations=args['maxiter'],
-                              confidence=args['conf'], binary_search_steps=args['binary_steps'], ro=args['ro'],
-                              iteration_steps=args['iteration_steps'], abort_early=args['abort_early'])
-
-        if args['attack'] == 'L2LA':
-            attack = LADMML2(sess, model, batch_size=args['batch_size'], max_iterations=args['maxiter'],
-                               confidence=args['conf'], binary_search_steps=args['iteration_steps'], ro=args['ro'],
-                               abort_early=args['abort_early'])
-        if args['attack'] == 'L2LAST':
+        if args['attack'] == 'structured':
             attack = LADMMSTL2(sess, model, batch_size=args['batch_size'], max_iterations=args['maxiter'],
                                confidence=args['conf'], binary_search_steps=args['iteration_steps'], ro=args['ro'],
                                abort_early=args['abort_early'],retrain=args['retrain'])
-
-        if args['attack'] == 'LiIF':
-            attack = IFGM(sess, model, batch_size=args['batch_size'], ord=np.inf, inception=inception)
-        if args['attack'] == 'LiF':
-            attack = FGM(sess, model, batch_size=args['batch_size'], ord=np.inf, inception=inception)
-
-        if args['attack'] == 'L1':
-            attack = EADL1(sess, model, batch_size=args['batch_size'], max_iterations=args['maxiter'],
-                           confidence=args['conf'],
-                           binary_search_steps=args['binary_steps'], beta=args['beta'], abort_early=args['abort_early'])
-
-        if args['attack'] == 'L1EN':
-            attack = EADEN(sess, model, batch_size=args['batch_size'], max_iterations=args['maxiter'],
-                           confidence=args['conf'],
-                           binary_search_steps=args['binary_steps'], beta=args['beta'], abort_early=args['abort_early'])
-
-        if args['attack'] == 'L1IFGM':
-            attack = IFGM(sess, model, batch_size=args['batch_size'], ord=1, inception=inception)
-        if args['attack'] == 'L2IFGM':
-            attack = IFGM(sess, model, batch_size=args['batch_size'], ord=2, inception=inception)
-
-        if args['attack'] == 'L1FGM':
-            attack = FGM(sess, model, batch_size=args['batch_size'], ord=1, inception=inception)
-        if args['attack'] == 'L2FGM':
-            attack = FGM(sess, model, batch_size=args['batch_size'], ord=2, inception=inception)
 
         timestart = time.time()
         adv = attack.attack(inputs, targets)
@@ -474,10 +435,9 @@ if __name__ == "__main__":
     parser.add_argument("-sh", "--show", action='store_true', default=True,
                         help='save original and adversarial images to save directory')
     parser.add_argument("-s", "--save", default="./saves", help="save directory")
-    parser.add_argument("-a", "--attack",
-                        choices=["L2C", "L2A", "L2AE", "L2LA", "L2LAST"],
-                        default="L2LAST",
-                        #default="L2C",
+    parser.add_argument("-a", "--attack_name",
+                        choices=["ADMM", "structured"],
+                        default="structured",
                         help="attack algorithm")
     parser.add_argument("-re", "--retrain", default=True, help="retrain or not")
     parser.add_argument("-tn", "--target_number", type=int, default=9, help="number of targets for one input")
