@@ -2,6 +2,7 @@
 
 example usage
 
+To generate attacked images, use the following example. Make sure to specify the attack_name and other commands if necessary.
 ```bash
 python main.py --attack_name PGD 
 ```
