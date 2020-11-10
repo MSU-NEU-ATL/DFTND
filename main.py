@@ -17,7 +17,10 @@ def main():
         command = ' '.join(sys.argv[:])
         command = 'python ' + command
         print(command)
-        # os.system(command)
+        os.system(command)
+        
+        # More attacks can be added
+        
     else:
         print('attack type error. Please provide attack type.')
 
