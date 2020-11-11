@@ -13,13 +13,15 @@ def main():
         if attack_type == 'Patch':
             attack = 'Patch_Attack'
         sys.argv[0] = attack + '.py'
+        
+        # More attacks can be added
 
         command = ' '.join(sys.argv[:])
         command = 'python ' + command
         print(command)
         os.system(command)
         
-        # More attacks can be added
+       
         
     else:
         print('attack type error. Please provide attack type.')
