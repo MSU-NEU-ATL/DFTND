@@ -15,6 +15,9 @@ def main():
         sys.argv[0] = attack + '.py'
         
         # More attacks can be added
+        if attack_type == 'trojan':
+            attack = 'trojan_train'
+        sys.argv[0] = 'DFTND/' + attack + '.py'
 
         command = ' '.join(sys.argv[:])
         command = 'python ' + command
