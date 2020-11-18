@@ -21,7 +21,7 @@ In main.py, make sure to keep ***attack_type*** same with ***attack_type***  in 
 if attack_type == 'PGD_linf' or 'PGD_l2':
     attack = 'PGD'
 ```
-Here ***attack*** is the name of your attack file.  
+Here ***attack*** is the name of your attack file.  Make sure that in your own file, you must include 2 parameters which are ***area*** and ***attack_type***.
 Another example is adversarial patch attack.
 ```bash
 if attack_type == 'Patch':
