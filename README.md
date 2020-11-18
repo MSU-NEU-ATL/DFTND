@@ -16,7 +16,7 @@ To submit your attacks, name your main attack file with the attack name such as 
 python PGD.py --area C --attack_type PGD_l2 --attack_goal N --model_type resnet18 --strategy WB
 ```
 **How to add your own attacks?**   
-In main.py, make sure to keep ***attack_type*** same with ***attack_type***  in your own attack files. For example,  'PGD_linf' and 'PGD_l2' are the attack_types used in PGD.py. So the codes in main.py shoule be like:
+You need to modify or add some codes in main.py file. In main.py, make sure to keep ***attack_type*** same with ***attack_type***  in your own attack files. For example,  'PGD_linf' and 'PGD_l2' are the attack_types used in PGD.py. So the codes in main.py shoule be like:
 ```bash
 if attack_type == 'PGD_linf' or 'PGD_l2':
     attack = 'PGD'
