@@ -21,6 +21,10 @@ def main():
         print(command)
         os.system(command)
         
+    else if --attack_type =='SNGAN':
+        command = 'python ' + 'GAN/SNGAN/evaluations/gen_images.py --config_path GAN/SNGAN/configs/sn_projection_celeba.yml \\
+        --snapshot GAN/SNGAN/models/celeba_align_png_cropped.npz --results_dir GAN/SNGAN/gen_image/ --num_pngs 1000 --seed 0'
+        
        
         
     else:
