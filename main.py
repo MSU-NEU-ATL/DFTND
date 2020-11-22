@@ -21,10 +21,18 @@ def main():
         print(command)
         os.system(command)
         
-    else if --attack_type =='SNGAN':
-        command = 'python ' + 'GAN/SNGAN/evaluations/gen_images.py --config_path GAN/SNGAN/configs/sn_projection_celeba.yml \\
-        --snapshot GAN/SNGAN/models/celeba_align_png_cropped.npz --results_dir GAN/SNGAN/gen_image/ --num_pngs 1000 --seed 0'
+    elif '--attack_type' in sys.argv:
+        a = sys.argv.index('--attack_type')
+        attack_type = sys.argv[a + 1]
         
+        if attack_type =='SNGAN':
+            command = 'python ' + './evaluations/gen_images.py --config_path ./configs/sn_projection_celeba.yml --snapshot ./models/celeba_align_png_cropped.npz --results_dir ./gen_image/ --num_pngs 1000 --seed 0'
+        print(command)
+        os.system('ls')
+        os.chdir('./SNGAN/')
+        os.system('pwd')
+        
+        os.system(command)
        
         
     else:
