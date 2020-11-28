@@ -26,11 +26,38 @@ def main():
         attack_type = sys.argv[a + 1]
         
         if attack_type =='SNGAN':
-            command = 'python ' + './evaluations/gen_images.py --config_path ./configs/sn_projection_celeba.yml --snapshot ./models/celeba_align_png_cropped.npz --results_dir ./gen_image/ --num_pngs 1000 --seed 0'
-        print(command)
-        os.system('ls')
-        os.chdir('./SNGAN/')
-        os.system('pwd')
+            command = ' '.join(sys.argv[3:])
+            command = 'python ' + command
+            print(command)
+            os.system('ls')
+            os.chdir('./SNGAN/')
+            os.system('pwd')
+        
+        if attack_type =='FSGAN':
+            command = ' '.join(sys.argv[3:])
+            print(command)
+            os.system('ls')
+            os.chdir('./FSGAN/')
+            os.system('pwd')
+            
+        if attack_type =='SEAN':
+            #command = 'python ' + './evaluations/gen_images.py --config_path ./configs/sn_projection_celeba.yml --snapshot ./models/celeba_align_png_cropped.npz --results_dir ./gen_image/ --num_pngs 1000 --seed 0'
+            
+            command = ' '.join(sys.argv[3:])
+            print(command)
+            os.system('ls')
+            os.chdir('./SEAN/')
+            os.system('pwd')
+            
+        if attack_type =='PGAN':
+            command = ' '.join(sys.argv[3:])
+            command = 'python ' + command
+            print(command)
+            os.system('ls')
+            os.chdir('./PGAN/')
+            os.system('pwd')
+        
+        
         
         os.system(command)
        
