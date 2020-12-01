@@ -1,14 +1,8 @@
-# %load_ext autoreload
-# %autoreload 2
 from keras import backend as K
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
-import _pickle as pkl
-import scipy.stats as stats
 import tensorflow as tf
-# from lime import lime_image
-import time
 import argparse
 from utils.utils_interpret import IntegratedGradientsAttack
 from utils.modified_squeezenet import SqueezeNet
