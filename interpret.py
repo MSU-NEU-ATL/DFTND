@@ -100,7 +100,6 @@ for i in range(args.adv_size):
     test_image = X[n]
     plt.rcParams["figure.figsize"]=8,8
     print("Image Label : {}".format(labels_dic[y[n]]))
-    # %matplotlib inline
     plt.imshow((X[n,:,:,::-1]+mean_image[:,:,::-1])/255)
     if args.test:
         plt.show()
