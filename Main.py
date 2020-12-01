@@ -19,11 +19,15 @@ def main():
         if attack_type == 'FGSM':
             attack = 'FGSM_Attack'
 
+        if attack_type == 'interpret':
+            attack = 'interpret'
+
         sys.argv[0] = attack + '.py'
 
         if attack_type == 'trojan':
             attack = 'trojan_train'
         sys.argv[0] = 'DFTND/' + attack + '.py'
+        # sys.argv[0] = attack + '.py'
 
         command = ' '.join(sys.argv[:])
         command = 'python ' + command
